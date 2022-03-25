@@ -1,0 +1,65 @@
+PWD c:\Users\contest.W12-418-15\Desktop\nada\dz
+INPUT C:\Users\contest.W12-418-15\AppData\Local\MiKTeX\2.9\miktex\data\le\pdftex\pdflatex.fmt
+INPUT c:\Users\contest.W12-418-15\Desktop\nada\dz\main.tex
+OUTPUT main.log
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\base\size11.clo
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\base\size11.clo
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmr10.tfm
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\babel\switch.def
+INPUT C:\Users\contest.W12-418-15\AppData\Roaming\MiKTeX\2.9\tex\latex\arabi\bblopts.cfg
+INPUT C:\Users\contest.W12-418-15\AppData\Roaming\MiKTeX\2.9\tex\latex\arabi\bblopts.cfg
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\babel-english\english.ldf
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\babel-english\english.ldf
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\babel\txtbabel.def
+INPUT C:\Users\contest.W12-418-15\AppData\Roaming\MiKTeX\2.9\tex\latex\babel-russian\russianb.ldf
+INPUT C:\Users\contest.W12-418-15\AppData\Roaming\MiKTeX\2.9\tex\latex\babel-russian\russianb.ldf
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\cyrillic\t2aenc.def
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\base\t2aenc.dfu
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\base\t2aenc.dfu
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\base\fontenc.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\base\fontenc.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\cyrillic\t2aenc.def
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\cyrillic\t2aenc.def
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\cyrillic\t2acmr.fd
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\cyrillic\t2acmr.fd
+INPUT C:\Users\contest.W12-418-15\AppData\Local\MiKTeX\2.9\fonts\tfm\lh\lh-t2a\larm1095.tfm
+INPUT main.aux
+INPUT main.aux
+OUTPUT main.aux
+INPUT C:\Users\contest.W12-418-15\AppData\Local\MiKTeX\2.9\fonts\tfm\lh\lh-t2a\larm1728.tfm
+INPUT C:\Users\contest.W12-418-15\AppData\Local\MiKTeX\2.9\fonts\tfm\lh\lh-t2a\larm1200.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmr12.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmr8.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmr6.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmmi12.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmmi8.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmmi6.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmsy10.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmsy8.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmsy6.tfm
+INPUT C:\Users\contest.W12-418-15\AppData\Local\MiKTeX\2.9\fonts\tfm\lh\lh-t2a\larm1440.tfm
+INPUT C:\Users\contest.W12-418-15\AppData\Local\MiKTeX\2.9\fonts\tfm\lh\lh-t2a\labx1440.tfm
+INPUT 3.tex
+INPUT 3.tex
+INPUT 14.tex
+INPUT 14.tex
+OUTPUT main.pdf
+INPUT C:\Users\contest.W12-418-15\AppData\Local\MiKTeX\2.9\pdftex\config\pdftex.map
+INPUT 15.tex
+INPUT 15.tex
+INPUT main.aux
+INPUT C:\Users\contest.W12-418-15\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\lh\lh-t2a\dpi600\larm1095.pk
+INPUT C:\Users\contest.W12-418-15\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\lh\lh-t2a\dpi600\larm1095.pk
+INPUT C:\Users\contest.W12-418-15\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\lh\lh-t2a\dpi600\labx1440.pk
+INPUT C:\Users\contest.W12-418-15\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\lh\lh-t2a\dpi600\labx1440.pk
+INPUT C:\Users\contest.W12-418-15\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\lh\lh-t2a\dpi600\larm1200.pk
+INPUT C:\Users\contest.W12-418-15\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\lh\lh-t2a\dpi600\larm1200.pk
+INPUT C:\Users\contest.W12-418-15\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\lh\lh-t2a\dpi600\larm1728.pk
+INPUT C:\Users\contest.W12-418-15\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\lh\lh-t2a\dpi600\larm1728.pk
