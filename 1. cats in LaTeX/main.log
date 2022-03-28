@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3 32-bit Portable) (preloaded format=pdflatex 2021.5.20)  26 MAR 2022 00:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3 32-bit Portable) (preloaded format=pdflatex 2021.5.20)  28 MAR 2022 23:53
 entering extended mode
 **./main.tex
 (main.tex
@@ -314,34 +314,34 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 15.
  (3.tex) [1
 
-{D:/Unik/MIT/PortableTEX/texmfs/data/pdftex/config/pdftex.map}] (14.tex) [2] (1
-5.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 1--25
+{D:/Unik/MIT/PortableTEX/texmfs/data/pdftex/config/pdftex.map}] [2] (14.tex) [3
+] [4] (15.tex)
+Underfull \hbox (badness 10000) in paragraph at lines 1--29
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1--25
+Underfull \hbox (badness 10000) in paragraph at lines 1--29
 
  []
 
-[3] [4] (main.aux) ) 
+[5] (main.aux) ) 
 Here is how much of TeX's memory you used:
  1980 strings out of 479129
  27024 string characters out of 2849007
- 337932 words of memory out of 3000000
+ 336932 words of memory out of 3000000
  19636 multiletter control sequences out of 15000+600000
  410505 words of font info for 42 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,6n,51p,245b,189s stack positions out of 5000i,500n,10000p,200000b,80000s
- <D:\Unik\MIT\PortableTEX\texmfs/data\fonts/pk/ljfour/lh/lh
--t2a/dpi600\larm1095.pk> <D:\Unik\MIT\PortableTEX\texmfs/data\fonts/pk/ljfour/l
-h/lh-t2a/dpi600\labx1440.pk> <D:\Unik\MIT\PortableTEX\texmfs/data\fonts/pk/ljfo
-ur/lh/lh-t2a/dpi600\larm1200.pk> <D:\Unik\MIT\PortableTEX\texmfs/data\fonts/pk/
-ljfour/lh/lh-t2a/dpi600\larm1728.pk>
-Output written on main.pdf (4 pages, 45228 bytes).
+ <D:\Unik\MIT\PortableTEX\texmfs/data\fonts/pk/ljfour/lh/lh-t2a
+/dpi600\larm1095.pk> <D:\Unik\MIT\PortableTEX\texmfs/data\fonts/pk/ljfour/lh/lh
+-t2a/dpi600\labx1440.pk> <D:\Unik\MIT\PortableTEX\texmfs/data\fonts/pk/ljfour/l
+h/lh-t2a/dpi600\larm1200.pk> <D:\Unik\MIT\PortableTEX\texmfs/data\fonts/pk/ljfo
+ur/lh/lh-t2a/dpi600\larm1728.pk>
+Output written on main.pdf (5 pages, 46031 bytes).
 PDF statistics:
- 142 PDF objects out of 1000 (max. 8388607)
+ 146 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
