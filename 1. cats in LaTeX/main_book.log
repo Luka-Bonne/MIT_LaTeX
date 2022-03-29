@@ -1,35 +1,36 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.3.29)  29 MAR 2022 23:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.3.29)  30 MAR 2022 00:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"d:/Unik/MIT/LaTeX/1. cats in LaTeX/main.tex"
-(d:/Unik/MIT/LaTeX/1. cats in LaTeX/main.tex
+**"d:/Unik/MIT/LaTeX/1. cats in LaTeX/main_book.tex"
+(d:/Unik/MIT/LaTeX/1. cats in LaTeX/main_book.tex
 LaTeX2e <2021-11-15> patch level 1
-L3 programming layer <2022-02-24> (C:\Users\aser\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
-Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
-(C:\Users\aser\AppData\Local\Programs\MiKTeX\tex/latex/base\size11.clo
-File: size11.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
+L3 programming layer <2022-02-24> (C:\Users\aser\AppData\Local\Programs\MiKTeX\tex/latex/base\book.cls
+Document Class: book 2021/10/04 v1.4n Standard LaTeX document class
+(C:\Users\aser\AppData\Local\Programs\MiKTeX\tex/latex/base\bk11.clo
+File: bk11.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count185
-\c@section=\count186
-\c@subsection=\count187
-\c@subsubsection=\count188
-\c@paragraph=\count189
-\c@subparagraph=\count190
-\c@figure=\count191
-\c@table=\count192
+\c@chapter=\count186
+\c@section=\count187
+\c@subsection=\count188
+\c@subsubsection=\count189
+\c@paragraph=\count190
+\c@subparagraph=\count191
+\c@figure=\count192
+\c@table=\count193
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen138
 ) (C:\Users\aser\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
 Package: babel 2022/02/26 3.73 The Babel package
-\babel@savecnt=\count193
+\babel@savecnt=\count194
 \U@D=\dimen139
 \l@unhyphenated=\language79
  (C:\Users\aser\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
 \bbl@readstream=\read2
-\bbl@dirlevel=\count194
+\bbl@dirlevel=\count195
 
 *************************************
 * Local config file bblopts.cfg used
@@ -269,10 +270,10 @@ LaTeX Font Info:    Trying to load font information for T2A+cmr on input line 11
 File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 )) (C:\Users\aser\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count195
+\l__color_backend_stack_int=\count196
 \l__pdf_internal_box=\box50
-) (main.aux)
-\openout1 = `main.aux'.
+) (main_book.aux)
+\openout1 = `main_book.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
 LaTeX Font Info:    ... okay on input line 8.
@@ -299,22 +300,29 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 12.
  [1
 
-{C:/Users/aser/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (3.tex
+
+{C:/Users/aser/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2
+
+] (3.tex
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <10.95> on input line 4.
- [2]) [3] (14.tex [4]) [5] (15.tex) [6] (main.aux) ) 
+ [3]) [4] (14.tex [5
+
+]) [6] (15.tex) [7
+
+] (main_book.aux) ) 
 Here is how much of TeX's memory you used:
- 2181 strings out of 478582
- 33613 string characters out of 2844816
- 340487 words of memory out of 3000000
- 20389 multiletter control sequences out of 15000+600000
- 476950 words of font info for 45 fonts, out of 8000000 for 9000
+ 2206 strings out of 478582
+ 33892 string characters out of 2844816
+ 340035 words of memory out of 3000000
+ 20413 multiletter control sequences out of 15000+600000
+ 477817 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,6n,52p,280b,191s stack positions out of 10000i,1000n,20000p,200000b,80000s
- <C:\Users\aser\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\labx1440.pk> <C:\Users\aser\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\larm1095.pk> <C:\Users\aser\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\larm1200.pk> <C:\Users\aser\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\larm1728.pk>
-Output written on main.pdf (6 pages, 46554 bytes).
+ 41i,6n,52p,285b,183s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ <C:\Users\aser\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\labx2488.pk> <C:\Users\aser\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\larm1095.pk> <C:\Users\aser\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\larm1200.pk> <C:\Users\aser\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\larm1728.pk>
+Output written on main_book.pdf (7 pages, 47993 bytes).
 PDF statistics:
- 148 PDF objects out of 1000 (max. 8388607)
+ 154 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
