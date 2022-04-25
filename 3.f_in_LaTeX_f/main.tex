@@ -1,0 +1,41 @@
+\documentclass{article}
+\usepackage[T2A]{fontenc}
+\usepackage[cp1251]{inputenc}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage[12pt]{extsizes}
+\usepackage{fancyvrb}
+\usepackage{indentfirst}
+\usepackage[
+  left=2cm, right=2cm, top=2cm, bottom=2cm, headsep=0.2cm, footskip=0.6cm, bindingoffset=0cm
+]{geometry}
+\usepackage[english,russian]{babel}
+
+
+\begin{document}
+
+  \section*{Вариант 15}
+  
+  После линеаризации и выполнения интегрального преобразования Лапласа по времени $t$
+  $f(t) \rightarrow f(\lambda) = \int_{0}^{\infty} f(t)e^{-\lambda t} \,dt$ динамическая 
+  модель КДС представляется в виде матрицы передаточных 
+  функций $\Phi (\lambda , \mathbf{p}, \mathbf{s})$
+  \begin{alignat*}{1}
+    \widetilde{y}(\lambda) = \Phi (\lambda , \mathbf{p}, \mathbf{s})\widetilde{x}(\lambda),  \qquad & \Phi (\lambda , \mathbf{p}, \mathbf{s}) = [\Phi _{kj}(\lambda , \mathbf{p}, \mathbf{s})],
+  \end{alignat*}
+  \begin{equation}\label{eq:ex01}
+    \Phi _{kj}(\lambda , \mathbf{p}, \mathbf{s}) = Q_{kj}(\lambda , \mathbf{p}, \mathbf{s})/D(\lambda, \mathbf{p}, \mathbf{s}),
+  \end{equation}
+  \begin{alignat*}{1}
+    k = 1, 2, \ldots , N_y,  \qquad & j = 1, 2, \ldots , N_x,
+  \end{alignat*}
+  где $D(\lambda, \mathbf{p}, \mathbf{s})$ "--- характеристический квазимногочлен, 
+  $Q_{kj}(\lambda, \mathbf{p}, \mathbf{s})$ "--- возмущающие квазимногочлены, 
+  $\mathbf{p} = (p_1, \ldots, p_{N_p})^T \in \mathbb{R} ^{N_p}$ "--- параметры обратных связей, 
+  $\mathbf{s} = (s_1, s_2, \ldots, s_{N_s})^T \in \Omega _s \subset \mathbb{R} ^{N_p} $ "--- конструктивные параметры, 
+  от которых зависят передаточные функции линеаризованной системы.
+\end{document}
+
