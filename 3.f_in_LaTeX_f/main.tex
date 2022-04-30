@@ -23,15 +23,14 @@
   $f(t) \rightarrow f(\lambda) = \int_{0}^{\infty} f(t)e^{-\lambda t} \,dt$ динамическая 
   модель КДС представляется в виде матрицы передаточных 
   функций $\Phi (\lambda , \mathbf{p}, \mathbf{s})$
-  \begin{alignat*}{1}
-    \widetilde{y}(\lambda) = \Phi (\lambda , \mathbf{p}, \mathbf{s})\widetilde{x}(\lambda),  \qquad & \Phi (\lambda , \mathbf{p}, \mathbf{s}) = [\Phi _{kj}(\lambda , \mathbf{p}, \mathbf{s})],
-  \end{alignat*}
-  \begin{equation}\label{eq:ex01}
-    \Phi _{kj}(\lambda , \mathbf{p}, \mathbf{s}) = Q_{kj}(\lambda , \mathbf{p}, \mathbf{s})/D(\lambda, \mathbf{p}, \mathbf{s}),
+  \begin{equation}
+  \begin{gathered}
+      \boldsymbol{\widetilde{y}}(\lambda) = \Phi (\lambda , \mathbf{p}, \mathbf{s})\boldsymbol{\widetilde{x}}(\lambda),  
+      \qquad \Phi (\lambda , \mathbf{p}, \mathbf{s}) = [\Phi _{kj}(\lambda , \mathbf{p}, \mathbf{s})],\\
+      \Phi _{kj}(\lambda , \mathbf{p}, \mathbf{s}) = Q_{kj}(\lambda , \mathbf{p}, \mathbf{s})/D(\lambda, \mathbf{p}, \mathbf{s}),\\
+      k = 1, 2, \ldots , N_y, \qquad j = 1, 2, \ldots , N_x,
+  \end{gathered}
   \end{equation}
-  \begin{alignat*}{1}
-    k = 1, 2, \ldots , N_y,  \qquad & j = 1, 2, \ldots , N_x,
-  \end{alignat*}
   где $D(\lambda, \mathbf{p}, \mathbf{s})$ "--- характеристический квазимногочлен, 
   $Q_{kj}(\lambda, \mathbf{p}, \mathbf{s})$ "--- возмущающие квазимногочлены, 
   $\mathbf{p} = (p_1, \ldots, p_{N_p})^T \in \mathbb{R} ^{N_p}$ "--- параметры обратных связей, 
