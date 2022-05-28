@@ -33,10 +33,19 @@
 \usepackage[english,russian]{babel}
 \usepackage{tempora}
 
-%\usepackage{minted}
-\usepackage[colorlinks=true]{hyperref}
+\usepackage{minted}
+
+\setminted{
+    linenos=true,   % включение номеров строк в листингах
+	numbersep=5pt,  % промежуток между номерами строк и началом строк листинга
+	breaklines}     % автоматические переносы строк (когда строки не умещаются)
+
+\usemintedstyle{bw} % включение черно-белого стиля программного кода
+
+\usepackage[colorlinks=false]{hyperref}
 
 \newcommand{\eqdef}{\stackrel {\rm def}{=}}
+
 
 \newtheorem{lem}{Лемма}
 
@@ -159,39 +168,95 @@
 
     \subsubsection{Определение структуры}
     Определим нашу структуру следующим образом:
-    
-    %файл питона
+    \begin{minted}[fontsize=\small]{c++}
+        typedef struct arena {
+            // Указатель на начало региона
+            struct node* arena;
+            // Размер региона
+            unsigned int size;
+            // Объем выделенной регионом памяти
+            unsigned int allocated;
+        } arena;
+    \end{minted}
 
     \subsubsection{Инициализация}
-    Теперь определим функцию arena\_construct, выполняющую начальную инициализацию состояния региона:
-    %файл питона
+    Теперь определим функцию \verb"arena_construct", выполняющую начальную инициализацию состояния региона:
+    \begin{minted}[fontsize=\small]{c++}
+        int arena_construct (arena* arena) {
+            // Начальный размер региона равен некоторой постоянной, равной DEFAULT_ARENA_SIZE
+            arena->size = DEFAULT_ARENA_SIZE;
+            arena->allocated = 0;
+            // Выделим необходимое число памяти
+            arena->arena = malloc(sizeof(node) * DEFAULT_ARENA_SIZE);
+            // Если выделение прошло неудачно - вернем в качестве кода ошибки отличное от 0 значение.
+            if (arena->arena == NULL) {
+                return (!0);
+            }
+            return 0;
+        }
+    \end{minted}
 
     \subsubsection{Выделение памяти}
     После выделения некоторого объема памяти возможно обращение к ней.
-    Определим это обращение с помощью функции arena\_allocate:
-    %файл питона
+    Определим это обращение с помощью функции \verb"arena_allocate":
+    \begin{minted}[fontsize=\small]{c++}
+        int arena_allocate (arena* arena, unsigned int count) {
+            // Если места в регионе недостаточно
+            if (arena->allocated + count >= arena->size) {
+                // Определим новый размер региона
+                unsigned int newSize = MULTIPLY_FACTOR * arena->size;
+                // Выделим регион большего размера и освободим ранее занятую память
+                node* newArena = realloc(arena->arena,
+                    newSize * sizeof(node));
+                if (NULL == newArena) {
+                    return -1;
+                }
+                arena->arena = newArena;
+                arena->size = newSize;
+            }
+            // В качестве результата вернем индекс первого свободного участка региона
+            unsigned int result = arena->allocated;
+            // Сместим индекс на объем выделенной памяти
+            arena->allocated += count;
+            // Вернем результат
+            return result;
+        }
+    \end{minted}
 
-    Отметим, что наиболее часто значением MULTIPLY\_FACTOR оказывается числа 
+    Отметим, что наиболее часто значением \verb"MULTIPLY_FACTOR" оказывается числа 
     1.5 и 2. Это позволяет достичь амортизационно константного времени 
     выполнения операции выделения памяти \cite{Facebook}.
 
     \subsubsection{Освобождение выделенной памяти}
-    Наконец, реализуем освобождение выделенной региону памяти с помощью функции arena\_free
-    %файл питона
+    Наконец, реализуем освобождение выделенной региону памяти с помощью функции \verb"arena_free"
+    \begin{minted}[fontsize=\small]{c++}
+        void arena_free (arena* arena) {
+            if (arena->arena != NULL)
+                free(arena->arena);
+            arena->arena = NULL;
+        }
+    \end{minted}
 
     \subsubsection{Модификация абстрактного синтаксического дерева}
     Осталось изменить исходный код программы, чтобы обеспечить выделение памяти с помощью полученной 
     нами структуры данных.
 
-    Для этого воспользуемся директивой \%param и заявим в качестве параметра переменную типа arena*. 
-    В функциях eval, newnum, newast внесем изменения, чтобы обеспечить выделение памятью с помощью 
+    Для этого воспользуемся директивой \verb"%param" и заявим в качестве параметра переменную типа \verb"arena*". 
+    В функциях \verb"eval", \verb"newnum", \verb"newast" внесем изменения, чтобы обеспечить выделение памятью с помощью 
     написанных ранее функций.
 
-    С полным кодом программы можно ознакомиться в приложении А.%ссылка
+    С полным кодом программы можно ознакомиться в приложении \hyperref[А]{А}.
 
     \subsubsection{Сборка проекта}
-    Теперь проект можно собрать, незначительно изменив Makefile:
-    %файл питона
+    Теперь проект можно собрать, незначительно изменив \verb"Makefile":
+    
+    \begin{minted}[fontsize=\small]{c++}
+        calc.out: calc.l calc.y arena_ast.h
+            bison -d calc.y
+            flex calc.l
+            cc -o $@ calc.tab.c lex.yy.c arena_ast.c arena.c
+    \end{minted}
+
     и запустить. Результат работы программы представлен на рис. \hyperref[6]{6} 
 
     \begin{center}
@@ -203,25 +268,60 @@
     Проведем анализ производительности полученных версий анализатора. В 
     качестве данных для тестирования возьмем выражения вида $\underbrace{2 + 2 + 2 \dots + 2}_n $ 
     для $n = 1 \dots 100$ с шагом 1. Для вычисления времени выполнения воспользуемся библиотекой 
-    time Python 3.9.5. Автоматизацию обеспечим с помощью библиотеки subprocess. Получим следующий код:
-    %файл питона
+    \verb"time" Python 3.9.5. Автоматизацию обеспечим с помощью библиотеки \verb"subprocess". Получим следующий код:
+    
+    \begin{minted}[fontsize=\small]{python}
+        import subprocess as sb
+        import time
+        import sys
+        def run(args):
+            return sb.run(args,
+                capture_output=True, ).stdout.decode().strip()
+
+        def main():
+            if (len(sys.argv) < 6):
+                print("Invalid arguments" )
+                return
+        exe_path = sys.argv[1]
+        out_path = sys.argv[2]
+        right_bound = int(sys.argv[3])
+        step = int(sys.argv[4])
+        iter = sys.argv[5]
+
+        f = open(out_path, "w" )
+        f.write(f " { exe_path} \n " )
+        f.close()
+        for expr_len in range(1, right_bound, step):
+            test_string = "+" .join(['2' ] * expr_len)
+            args = [exe_path, test_string, iter]
+            t = time.monotonic()
+            run(args)
+            end_t = time.monotonic()
+            f = open(out_path, "a" )
+            f.write(f " { expr_len} { (end_t - t) / (int(iter))} \n " )
+            f.close()
+            print(f " Step { expr_len} finished" )
+
+        if __name__ == "__main__" :
+            main()
+    \end{minted}
 
     Кроме того, отметим, что в ранее написанные программы были внесены некоторые изменения для 
-    проведения эксперимента. Ознакомиться с ними можно в приложении А.%ссылка
+    проведения эксперимента. Ознакомиться с ними можно в приложении \hyperref[А]{А}.
 
     Ознакомиться с полным исходным кодом программы, осуществляющей 
-    исследование производительности можно в приложении Б.%ссылка
+    исследование производительности можно в приложении \hyperref[Б]{Б}.
 
-    Для большей наглядности графики интерполированы полиномом с помощью функции polyfit библиотеки numpy.
+    Для большей наглядности графики интерполированы полиномом с помощью функции \verb"polyfit" библиотеки \verb"numpy".
 
     Ознакомиться с полным исходным кодом программы, осуществляющей 
-    анализ полученных результатов можно в приложении В.%ссылка
+    анализ полученных результатов можно в приложении \hyperref[В]{В}.
 
     Результаты исследования изображены на рис. \hyperref[7]{7}:
 
     \begin{center}
         \includegraphics[scale=0.4]{pics/benchmark.png}\\
-        {\small Рисунок 7 – Сравнение полученных результатов}\label{7}
+        {\small Рисунок  7 – Сравнение полученных результатов}\label{7}
     \end{center}
 
     Исследование показало, что использование абстрактных синтаксических деревьев позволяет уменьшить время 
@@ -231,6 +331,27 @@
     управлении памятью на основе регионов. Тем не менее, она все еще может считаться более предпочительной 
     ввиду перечисленных ранее преимуществ.
 
+    \phantomsection
+    \addcontentsline{toc}{section}{ЗАКЛЮЧЕНИЕ}
+    \section*{\centering{ЗАКЛЮЧЕНИЕ}}
+    В ходе данной работы:
+    \begin{enumerate}
+        \item Были изучены теоретические основы построения лексических и синтаксических анализаторов.
+        \item Проанализированы особенности реализации лексических и синтаксических анализаторов.
+        \item Были изучены принципы работы генераторов лексического и синтаксического анализа на примере Flex и GNU Bison.
+        \item Были созданы лексический и синтаксический анализаторы для анализа математического выражения.
+        \item Было изучено понятие абстрактного синтаксического дерева.
+        \item Проведен анализ производительности полученных реализаций.
+    \end{enumerate}
+        
+    Таким образом, все поставленные в рамках работы задачи выполнены.
+    
+    Результаты исследования показали, что абстрактные синтаксические деревья позволяют добиться увеличения 
+    производительности в 5–6 раз.
+    
+    А это, в свою очередь, позволяет утверждать о том, что концепция абстрактных синтаксических деревьев 
+    является крайне важной в информатике и ее приложениях, в частности, при создании синтаксических анализаторов.
+
     \begin{thebibliography}{7}
         \bibitem{Wang} Wang, D.~C."~A. Managing memory with types / D.~C."~A.~Wang. "--- Princeton
         University, 2002. "--- Pp. 29"~55.
@@ -238,6 +359,115 @@
         URL: \href{https://github.com/facebook/folly/blob/master/folly/docs/}{https://github.com/facebook/folly/blob/master/folly/docs/}
         \href{https://github.com/facebook/folly/blob/master/folly/docs/}{FBVector.md} (Дата обращения 25.05.2021). Загл. с экр. Яз. англ.
     \end{thebibliography}
-    \signatureline
+    
+    \newpage
 
+    \appendix
+    \titleformat{\section}[display]
+    {\normalfont\Large\bfseries}
+    {\centering Приложение\ \thesection} 
+    {0pt}{\centering\normalsize}
+    \renewcommand{\thesection}{\Asbuk{section}}
+
+    \section{Flash-носитель с исходным кодом программ, использующихся в работе}\label{А}
+    \hspace{-1.5cm}
+    \textbf{Папка} \verb"src" содержит оригинальный исходный код программы:
+    
+    \textbf{Папка} \verb"naive" "--- реализация без АСД
+        
+    \textbf{Папка} \verb"naiveast" "--- реализация с АСД
+        
+    \textbf{Папка} \verb"arena" "--- реализация с АСД на основе региона
+        
+    \hspace{-1.5cm}
+    \textbf{Папка} \verb"extsrc" содержит измененный исходный код, необходимый для исследования производительности:
+    
+    \textbf{Папка} \verb"naive" "--- реализация без АСД
+        
+    \textbf{Папка} \verb"naiveast" "--- реализация с АСД
+        
+    \textbf{Папка} \verb"arena" "--- реализация с АСД на основе региона
+
+    \section{Исходный код программы на Python, осуществляющей исследование 
+    производительности полученных реализаций}\label{Б}
+    \begin{minted}[fontsize=\small]{python}
+        import subprocess as sb
+        import time
+        import sys
+        def run(args):
+            return sb.run(args, 
+                capture_output=True, ).stdout.decode().strip()
+
+        def main():
+            if (len(sys.argv) < 6):
+                print("Invalid arguments" )
+                return
+            exe_path = sys.argv[1]
+            out_path = sys.argv[2]
+            right_bound = int(sys.argv[3])
+            step = int(sys.argv[4])
+            iter = sys.argv[5]
+
+            f = open(out_path, "w" )
+            f.write(f"{exe_path} \n " )
+            f.close()
+            for expr_len in range(1, right_bound, step):
+                test_string = "+" .join(['2' ] * expr_len)
+                args = [exe_path, test_string, iter]
+                t = time.monotonic()
+                run(args)
+                end_t = time.monotonic()
+                f = open(out_path, "a" )
+                f.write(f"{expr_len} {(end_t - t) / (int(iter))} \n " )
+                f.close()
+                print(f" Step {expr_len} finished" )
+
+        if __name__ == "__main__" :
+            main()
+    \end{minted}
+
+    \section{Исходный код программы на Python, осуществляющей анализ полученных результатов}\label{В}
+    \begin{minted}[fontsize=\small]{python}
+        import subprocess as sb
+        from time import time
+        import matplotlib.pyplot as plt
+        import sys
+        import numpy as np
+        
+        legend = []
+        for index in range(1, len(sys.argv)):
+            file_name = sys.argv[index]
+            f = open(file_name, "r" )
+            try:
+                parser_type = f.readline()
+            except StopIteration:
+                parser_type = "Undefined parser"
+            legend.append(parser_type)
+
+            x_axis = []
+            y_axis = []
+            for line in f:
+                try:
+                    w, h = [float(x) for x in next(f).split()]
+                except StopIteration:
+                    break
+                x_axis.append(w)
+                y_axis.append(h)
+            plt.xlabel("Длина выражения" , size = 22)
+            plt.ylabel("Время" , size = 22)
+            p = np.polyfit(x_axis, y_axis, 1)
+            for i in range(len(x_axis)):
+                y_axis[i] = p[0] * x_axis[i] + p[1]
+
+            plt.plot(x_axis, y_axis)
+        plt.xlim(0.5, 100.5)
+        plt.ylim(5e-8, 2e-5)
+        plt.rcParams.update({'font.size': 18})
+        #plt.yscale("log")
+        plt.grid(True)
+        plt.legend(legend, loc="lower right" )
+        plt.show()
+    \end{minted}
+
+    \signatureline
 \end{document}
